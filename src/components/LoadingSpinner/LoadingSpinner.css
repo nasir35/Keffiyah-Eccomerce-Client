@@ -1,0 +1,31 @@
+/* LoadingSpinner.css */
+
+@keyframes animateC {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+.ring-shadow {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.animate-rotate {
+  animation: animate 2s linear infinite;
+}
+
+.leading-36 {
+  line-height: 9rem; /* Adjust based on your needs */
+}
