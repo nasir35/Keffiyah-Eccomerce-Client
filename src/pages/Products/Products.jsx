@@ -53,7 +53,7 @@ const Products = ({ page }) => {
   };
 
   return (
-    <div className={`py-10 px-10 mb-4 ${fadeClass}`}>
+    <div className={`px-10 mb-8 ${fadeClass}`}>
       <SectionHeading
         title="Products"
         subTitle="We have a vast collection of products in different categories! Check out from the below and get your desired one."

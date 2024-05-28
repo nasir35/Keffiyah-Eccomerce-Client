@@ -27,7 +27,7 @@ const ContactUs = () => {
     <div className="min-h-screen bg-base-200 py-10 px-5 md:px-20">
       <ToastContainer
         position="top-right"
-        autoClose={10000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={true}
         closeOnClick

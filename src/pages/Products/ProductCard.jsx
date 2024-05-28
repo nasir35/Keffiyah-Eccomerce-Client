@@ -6,7 +6,7 @@ const ProductCard = ({ data }) => {
         <img
           src={image_urls[0]}
           alt={category}
-          className="rounded-xl w-full max-h-[215px] object-cover object-center "
+          className="rounded-xl w-full min-h-[215px] max-h-[215px] object-cover object-center "
         />
       </figure>
       <div className="card-body items-center text-center">

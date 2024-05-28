@@ -1,12 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
 import useAuth from "@/hooks/useAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const LinksModal = ({ show, setShow }) => {
+  const links = document.querySelectorAll("li");
+  links.forEach((l) => {
+    l.addEventListener("click", () => setShow(false));
+  });
   return (
     <div className={`fixed inset-0 z-50 ${show ? "block" : "hidden"}`}>
       <div className="bg-gray-900 bg-opacity-50 absolute inset-0"></div>
-      <div className="bg-white absolute top-0 left-0 transform -translate-x-full h-full z-50 w-64 p-4 overflow-y-auto">
+      <div
+        className={`bg-white absolute top-0 ${
+          show ? "left-0 opacity-100" : "left-[150%] opacity-0"
+        } transition-all duration-300 h-full z-50 w-full p-4 overflow-y-auto`}
+      >
         <ul className="flex flex-col gap-3">
           <li>
             <Link to="/" className="text-gray-800">
@@ -55,6 +63,13 @@ const Navbar = () => {
   const [focused, setFocused] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
   const location = useLocation();
+  useEffect(() => {
+    if (showLinks) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showLinks]);
 
   const getLinkClass = (path) => {
     if (path === "/" && path === location.pathname) {
@@ -69,11 +84,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-200 flex justify-between flex-wrap">
+    <div className="navbar sticky top-0 z-10 opacity-100 bg-base-200 flex justify-between flex-wrap">
       {/* logo  */}
-      <div className="flex gap-2">
+      <div className="flex">
         <button
-          className="btn btn-ghost text-xl lg:hidden" // Hide button on large screens
+          className="btn px-2 btn-ghost text-xl lg:hidden" // Hide button on large screens
           onClick={() => setShowLinks(!showLinks)} // Toggle visibility of links modal
         >
           <svg
@@ -90,7 +105,7 @@ const Navbar = () => {
             ></path>
           </svg>
         </button>
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/" className="btn px-2 btn-ghost text-xl">
           Keffiyeh
         </Link>
       </div>

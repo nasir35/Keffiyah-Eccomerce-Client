@@ -12,6 +12,9 @@ import ProductCharts from "../components/Dashboard/ProductCharts";
 import PrivateRoute from "./PrivateRoute";
 import NumberParamRoute from "./NumberParamRoute";
 import ContactUs from "../pages/ContactUs";
+import CategoryBasedProducts from "../pages/Products/CategoryBasedProducts";
+import AddProduct from "../pages/Dashboard/AddProduct";
+import AllProducts from "../pages/Dashboard/AllProducts";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +45,10 @@ export const router = createBrowserRouter([
               </NumberParamRoute>
             ),
           },
+          {
+            path: "category/:categoryId",
+            element: <CategoryBasedProducts />,
+          },
         ],
       },
       {
@@ -59,7 +66,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: (
       <PrivateRoute>
         <DashboardLayout />
@@ -72,8 +79,15 @@ export const router = createBrowserRouter([
         element: <ProductCharts />,
       },
       {
-        path: "orders",
-        element: <Orders></Orders>,
+        path: "add-product",
+        element: <AddProduct />,
+      },
+      {
+        path: "all-products",
+        element: <AllProducts />,
+        loader: async () => {
+          return await fetch("http://localhost:3000/products");
+        },
       },
     ],
   },

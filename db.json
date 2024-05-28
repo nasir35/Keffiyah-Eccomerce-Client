@@ -1,100 +1,100 @@
 {
   "categories": [
     {
-      "id": 1,
-      "title": "Keffiya",
+      "id": "1",
+      "title": "Keffiyah",
       "itemsCount": 65,
       "image": "https://m.media-amazon.com/images/I/81eEN807AdL._AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "T-shirts",
       "itemsCount": 65,
       "image": "https://m.media-amazon.com/images/I/61ptKQQgd8L._AC_SX569_.jpg",
       "bannerImgUrl": "https://img.freepik.com/free-vector/promotion-fashion-banner_1188-201.jpg?t=st=1716750103~exp=1716753703~hmac=1fcd73ed2e350519ca62e05c3dc24f21c680c6521930c0b4ba99901196507e41&w=900"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Dresses",
       "itemsCount": 65,
       "image": "https://m.media-amazon.com/images/I/81+ORsv5c3L._AC_SX569_.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Punjabi",
       "itemsCount": 85,
       "image": "https://m.media-amazon.com/images/I/616oAupl+eL._AC_SY741_.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Outerwear",
       "itemsCount": 40,
       "image": "https://m.media-amazon.com/images/I/61YRtNNKwiL._AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Shoes",
       "itemsCount": 110,
       "image": "https://m.media-amazon.com/images/I/61Ps2D+ktAL._AC_SY695_.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Accessories",
       "itemsCount": 150,
       "image": "https://m.media-amazon.com/images/I/51zqXr1fRsL._AC_SX679_.jpg"
     },
     {
-      "id": 8,
-      "title": "Activewear",
+      "id": "8",
+      "title": "ActiveWear",
       "itemsCount": 60,
       "image": "https://m.media-amazon.com/images/I/519C4JXCQ5L._AC_SX679_.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Tops",
       "itemsCount": 120,
       "image": "https://m.media-amazon.com/images/I/81ILkRv92gL._AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 10,
-      "title": "Hats",
-      "itemsCount": 20,
-      "image": "https://m.media-amazon.com/images/I/7193s9C7ruL._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": 11,
+      "id": "10",
       "title": "Abayas",
       "itemsCount": 50,
       "image": "https://m.media-amazon.com/images/I/41aqj454vtL._AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 12,
+      "id": "11",
       "title": "Kaftans",
       "itemsCount": 35,
       "image": "https://m.media-amazon.com/images/I/71YYrVzy6oL._MCnd_AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 13,
+      "id": "12",
       "title": "Hijabs",
       "itemsCount": 75,
       "image": "https://m.media-amazon.com/images/I/41y8Xb6JI7L._AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 14,
+      "id": "13",
       "title": "Thobes",
       "itemsCount": 40,
       "image": "https://m.media-amazon.com/images/I/51vhUmzixIL._AC_UL480_FMwebp_QL65_.jpg"
     },
     {
-      "id": 15,
+      "id": "14",
       "title": "Niqabs",
       "itemsCount": 15,
       "image": "https://m.media-amazon.com/images/I/4166vX-ElfL._MCnd_AC_UL480_QL65_.jpg"
+    },
+    {
+      "id": "15",
+      "title": "Hats",
+      "itemsCount": 20,
+      "image": "https://m.media-amazon.com/images/I/7193s9C7ruL._AC_UL480_FMwebp_QL65_.jpg"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Classic White T-Shirt",
       "brand": "BasicThreads",
       "price": 19.99,
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Graphic Print T-Shirt",
       "brand": "UrbanStyle",
       "price": 24.99,
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Striped T-Shirt",
       "brand": "StripeWear",
       "price": 22.99,
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "V-Neck T-Shirt",
       "brand": "FashionEssentials",
       "price": 20.99,
@@ -146,7 +146,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Long Sleeve T-Shirt",
       "brand": "CozyWear",
       "price": 25.99,
@@ -159,7 +159,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Sports T-Shirt",
       "brand": "ActiveFit",
       "price": 27.99,
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Traditional Red Keffiyah",
       "brand": "ArabStyle",
       "price": 29.99,
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Modern Black Keffiyah",
       "brand": "DesertWear",
       "price": 34.99,
@@ -198,7 +198,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Blue and White Keffiyah",
       "brand": "BedouinStyle",
       "price": 31.99,
@@ -211,7 +211,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Green Keffiyah",
       "brand": "EcoWear",
       "price": 32.99,
@@ -224,7 +224,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Classic Black and White Keffiyah",
       "brand": "HeritageWear",
       "price": 28.99,
@@ -237,7 +237,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Pink Keffiyah",
       "brand": "FashionForward",
       "price": 27.99,
@@ -250,7 +250,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Elegant Evening Gown",
       "brand": "GlamourWear",
       "price": 129.99,
@@ -263,7 +263,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Casual Summer Dress",
       "brand": "SunshineFashion",
       "price": 49.99,
@@ -276,7 +276,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Formal Office Dress",
       "brand": "ExecutiveStyle",
       "price": 79.99,
@@ -289,7 +289,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Floral Maxi Dress",
       "brand": "BohoChic",
       "price": 59.99,
@@ -302,7 +302,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Little Black Dress",
       "brand": "ClassicElegance",
       "price": 89.99,
@@ -315,7 +315,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Cocktail Dress",
       "brand": "PartyFashion",
       "price": 99.99,
@@ -328,7 +328,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Vintage Polka Dot Dress",
       "brand": "RetroWear",
       "price": 69.99,
@@ -341,7 +341,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Embroidered A-line Dress",
       "brand": "ElegantStitches",
       "price": 109.99,
@@ -354,7 +354,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Off-shoulder Evening Dress",
       "brand": "GlamourNights",
       "price": 119.99,
@@ -367,7 +367,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Striped Summer Dress",
       "brand": "SunnyDays",
       "price": 54.99,
@@ -380,7 +380,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Traditional Punjabi Suit",
       "brand": "EthnicElegance",
       "price": 79.99,
@@ -393,7 +393,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Punjabi Patiala Salwar Kameez",
       "brand": "RoyalWear",
       "price": 69.99,
@@ -406,7 +406,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Punjabi Kurti with Palazzo",
       "brand": "DesiVibes",
       "price": 59.99,
@@ -419,7 +419,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Punjabi Phulkari Dupatta",
       "brand": "PhulkariFashion",
       "price": 39.99,
@@ -432,7 +432,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "Embroidered Punjabi Jutti",
       "brand": "FootwearElegance",
       "price": 29.99,
@@ -445,7 +445,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": "28",
       "title": "Punjabi Sharara Suit",
       "brand": "GlamourWear",
       "price": 89.99,
@@ -458,7 +458,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Punjabi Kurta Pajama",
       "brand": "ClassicAttire",
       "price": 49.99,
@@ -471,7 +471,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "Punjabi Lehenga",
       "brand": "FestiveFashion",
       "price": 119.99,
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": "31",
       "title": "Handcrafted Punjabi Bangle Set",
       "brand": "BangleBliss",
       "price": 19.99,
@@ -497,7 +497,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": "32",
       "title": "Punjabi Wedding Dress",
       "brand": "BridalDreams",
       "price": 249.99,
@@ -510,7 +510,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": "33",
       "title": "Classic Trench Coat",
       "brand": "UrbanStyle",
       "price": 129.99,
@@ -523,7 +523,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": "34",
       "title": "Leather Jacket",
       "brand": "CoolVibes",
       "price": 199.99,
@@ -536,7 +536,7 @@
       ]
     },
     {
-      "id": 35,
+      "id": "35",
       "title": "Winter Parka",
       "brand": "WarmthCo",
       "price": 159.99,
@@ -549,7 +549,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": "36",
       "title": "Running Shoes",
       "brand": "Speedster",
       "price": 89.99,
@@ -562,7 +562,7 @@
       ]
     },
     {
-      "id": 37,
+      "id": "37",
       "title": "High Heels",
       "brand": "GlamourFeet",
       "price": 69.99,
@@ -575,7 +575,7 @@
       ]
     },
     {
-      "id": 38,
+      "id": "38",
       "title": "Casual Sneakers",
       "brand": "DailyWear",
       "price": 59.99,
@@ -588,7 +588,7 @@
       ]
     },
     {
-      "id": 39,
+      "id": "39",
       "title": "Leather Handbag",
       "brand": "ChicBag",
       "price": 79.99,
@@ -601,7 +601,7 @@
       ]
     },
     {
-      "id": 40,
+      "id": "40",
       "title": "Sunglasses",
       "brand": "SunGuard",
       "price": 29.99,
@@ -614,7 +614,7 @@
       ]
     },
     {
-      "id": 41,
+      "id": "41",
       "title": "Wrist Watch",
       "brand": "Timeless",
       "price": 99.99,
@@ -627,7 +627,7 @@
       ]
     },
     {
-      "id": 42,
+      "id": "42",
       "title": "Yoga Pants",
       "brand": "FlexFit",
       "price": 49.99,
@@ -640,7 +640,7 @@
       ]
     },
     {
-      "id": 43,
+      "id": "43",
       "title": "Running T-shirt",
       "brand": "Speedster",
       "price": 29.99,
@@ -653,7 +653,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": "44",
       "title": "Sports Bra",
       "brand": "Athleisure",
       "price": 39.99,
@@ -666,7 +666,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": "45",
       "title": "Casual T-Shirt",
       "brand": "DailyWear",
       "price": 19.99,
@@ -679,7 +679,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": "46",
       "title": "Formal Blouse",
       "brand": "OfficeChic",
       "price": 39.99,
@@ -692,7 +692,7 @@
       ]
     },
     {
-      "id": 47,
+      "id": "47",
       "title": "Graphic Tee",
       "brand": "UrbanStyle",
       "price": 24.99,
@@ -705,12 +705,12 @@
       ]
     },
     {
-      "id": 48,
+      "id": "48",
       "title": "Black Abaya",
       "brand": "ModestElegance",
       "price": 79.99,
       "quantity": 25,
-      "category": "Abyas",
+      "category": "Abayas",
       "description": "Elegant black abaya with intricate embroidery details.",
       "image_urls": [
         "https://image.freepik.com/free-photo/black-abaya_1232-470.jpg",
@@ -718,12 +718,12 @@
       ]
     },
     {
-      "id": 49,
+      "id": "49",
       "title": "Beige Abaya",
       "brand": "GracefulAttire",
       "price": 85.99,
       "quantity": 20,
-      "category": "Abyas",
+      "category": "Abayas",
       "description": "Sophisticated beige abaya, perfect for formal occasions.",
       "image_urls": [
         "https://image.freepik.com/free-photo/beige-abaya_1232-472.jpg",
@@ -731,12 +731,12 @@
       ]
     },
     {
-      "id": 50,
+      "id": "50",
       "title": "Embroidered Abaya",
       "brand": "RoyalModesty",
       "price": 95.99,
       "quantity": 15,
-      "category": "Abyas",
+      "category": "Abayas",
       "description": "Luxurious abaya with detailed embroidery, available in multiple colors.",
       "image_urls": [
         "https://image.freepik.com/free-photo/embroidered-abaya_1232-474.jpg",
@@ -744,7 +744,7 @@
       ]
     },
     {
-      "id": 51,
+      "id": "51",
       "title": "White Thobe",
       "brand": "ClassicWear",
       "price": 59.99,
@@ -757,7 +757,7 @@
       ]
     },
     {
-      "id": 52,
+      "id": "52",
       "title": "Black Thobe",
       "brand": "ElegantStyle",
       "price": 64.99,
@@ -770,7 +770,7 @@
       ]
     },
     {
-      "id": 53,
+      "id": "53",
       "title": "Navy Blue Thobe",
       "brand": "UrbanElegance",
       "price": 69.99,
@@ -783,7 +783,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": "54",
       "title": "Moroccan Kaftan",
       "brand": "Traditions",
       "price": 99.99,
@@ -796,7 +796,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": "55",
       "title": "Bohemian Kaftan",
       "brand": "BohoStyle",
       "price": 89.99,
@@ -809,7 +809,7 @@
       ]
     },
     {
-      "id": 56,
+      "id": "56",
       "title": "Embroidered Kaftan",
       "brand": "LuxuryFashion",
       "price": 129.99,
@@ -822,7 +822,7 @@
       ]
     },
     {
-      "id": 57,
+      "id": "57",
       "title": "Silk Hijab",
       "brand": "ElegantVeil",
       "price": 29.99,
@@ -835,7 +835,7 @@
       ]
     },
     {
-      "id": 58,
+      "id": "58",
       "title": "Cotton Hijab",
       "brand": "ComfortWear",
       "price": 19.99,
@@ -848,7 +848,7 @@
       ]
     },
     {
-      "id": 59,
+      "id": "59",
       "title": "Chiffon Hijab",
       "brand": "GracefulWrap",
       "price": 24.99,
@@ -861,12 +861,12 @@
       ]
     },
     {
-      "id": 60,
+      "id": "60",
       "title": "Classic Niqab",
       "brand": "ModestVeil",
       "price": 15.99,
       "quantity": 40,
-      "category": "Niqab",
+      "category": "Niqabs",
       "description": "Classic niqab, available in black and other colors.",
       "image_urls": [
         "https://image.freepik.com/free-photo/classic-niqab_1232-494.jpg",
@@ -874,12 +874,12 @@
       ]
     },
     {
-      "id": 61,
+      "id": "61",
       "title": "Embroidered Niqab",
       "brand": "ElegantCover",
       "price": 19.99,
       "quantity": 30,
-      "category": "Niqab",
+      "category": "Niqabs",
       "description": "Elegant niqab with subtle embroidery details.",
       "image_urls": [
         "https://image.freepik.com/free-photo/embroidered-niqab_1232-496.jpg",
@@ -887,16 +887,81 @@
       ]
     },
     {
-      "id": 62,
+      "id": "62",
       "title": "Two-Layer Niqab",
       "brand": "ModestElegance",
       "price": 17.99,
       "quantity": 35,
-      "category": "Niqab",
+      "category": "Niqabs",
       "description": "Two-layer niqab for extra coverage and modesty.",
       "image_urls": [
         "https://image.freepik.com/free-photo/two-layer-niqab_1232-498.jpg",
         "https://image.freepik.com/free-photo/modest-niqab_1232-499.jpg"
+      ]
+    },
+    {
+      "id": "63",
+      "title": "Classic Baseball Cap",
+      "brand": "CapMaster",
+      "price": 14.99,
+      "quantity": 120,
+      "category": "Hats",
+      "description": "A classic baseball cap with adjustable strap for a perfect fit. Available in multiple colors.",
+      "image_urls": [
+        "https://image.freepik.com/free-photo/baseball-cap-mockup_23-2148621682.jpg",
+        "https://image.freepik.com/free-photo/simple-baseball-cap_23-2148621684.jpg"
+      ]
+    },
+    {
+      "id": "64",
+      "title": "Beanie Hat",
+      "brand": "WarmKnits",
+      "price": 19.99,
+      "quantity": 80,
+      "category": "Hats",
+      "description": "A cozy beanie hat made from soft wool. Ideal for cold weather and available in various colors.",
+      "image_urls": [
+        "https://image.freepik.com/free-photo/wool-beanie-hat_23-2148621690.jpg",
+        "https://image.freepik.com/free-photo/cozy-beanie-hat_23-2148621692.jpg"
+      ]
+    },
+    {
+      "id": "65",
+      "title": "Fedora Hat",
+      "brand": "ElegantHeadwear",
+      "price": 29.99,
+      "quantity": 45,
+      "category": "Hats",
+      "description": "A stylish fedora hat that adds a touch of elegance to any outfit. Made from high-quality felt.",
+      "image_urls": [
+        "https://image.freepik.com/free-photo/fedora-hat-mockup_23-2148621698.jpg",
+        "https://image.freepik.com/free-photo/classy-fedora-hat_23-2148621700.jpg"
+      ]
+    },
+    {
+      "id": "66",
+      "title": "Sun Hat",
+      "brand": "BeachwearCo",
+      "price": 24.99,
+      "quantity": 60,
+      "category": "Hats",
+      "description": "A wide-brimmed sun hat that provides excellent sun protection. Perfect for beach outings.",
+      "image_urls": [
+        "https://image.freepik.com/free-photo/sun-hat-mockup_23-2148621706.jpg",
+        "https://image.freepik.com/free-photo/beach-sun-hat_23-2148621708.jpg"
+      ]
+    },
+    {
+      "id": "67",
+      "title": "Trucker Hat",
+      "brand": "UrbanStyle",
+      "price": 18.99,
+      "quantity": 90,
+      "category": "Hats",
+      "description": "A trendy trucker hat with mesh back for breathability. Available in multiple designs and colors.",
+      "image_urls": [
+        "https://image.freepik.com/free-photo/trucker-hat-mockup_23-2148621714.jpg",
+        "https://image.freepik.com/free-photo/cool-trucker-hat_23-2148621716.jpg"
       ]
     }
   ]

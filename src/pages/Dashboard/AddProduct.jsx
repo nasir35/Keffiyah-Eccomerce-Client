@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Select from "react-select";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ConfirmModal from "./ConfirmModal";
 
 const AddProduct = () => {
-  const [product, setProduct] = useState({
+  const initialProductState = {
     id: "",
     title: "",
     brand: "",
@@ -9,40 +14,89 @@ const AddProduct = () => {
     quantity: "",
     category: "",
     description: "",
-    imageUrl: "",
-  });
+    image_urls: [""],
+  };
 
-  const [imagePreview, setImagePreview] = useState(null);
+  const [product, setProduct] = useState(initialProductState);
+  const [categories, setCategories] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    async function load() {
+      const data = await axios.get("http://localhost:3000/categories");
+      if (data.status === 200) {
+        setCategories(
+          data.data.map((category) => ({
+            value: category.id,
+            label: category.title,
+          }))
+        );
+      }
+    }
+    load();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProduct({ ...product, [name]: value });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-        setProduct({ ...product, imageUrl: reader.result });
-      };
-      reader.readAsDataURL(file);
+    if (name === "image_urls") {
+      setProduct({ ...product, image_urls: [value] });
+    } else {
+      setProduct({ ...product, [name]: value });
     }
   };
 
-  const handleAddProduct = (e) => {
+  const handleCategoryChange = (selectedOption) => {
+    setProduct({
+      ...product,
+      category: selectedOption ? selectedOption.label : "",
+    });
+  };
+
+  const handleAddProduct = async () => {
+    try {
+      const res = await axios.post("http://localhost:3000/products", product);
+      if (res.status === 201) {
+        toast.success("Product added successfully!");
+        setProduct(initialProductState); // Reset form after success
+      }
+    } catch (error) {
+      toast.error("Failed to add product.");
+      console.error(error);
+    }
+    closeModal();
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(product);
+    openModal();
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
-      <div className="w-2/3 p-8">
-        <h1 className="text-3xl font-bold mb-6">Add Product</h1>
-        <form onSubmit={handleAddProduct} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+    <div className="min-h-fit bg-gray-100 flex">
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <div className="lg:w-2/3 w-full mx-auto">
+        <h1 className="text-3xl font-bold mb-6 text-center">Add Product</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               ID
             </label>
             <input
@@ -50,95 +104,106 @@ const AddProduct = () => {
               name="id"
               value={product.id}
               onChange={handleChange}
+              placeholder="121"
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Title
             </label>
             <input
               type="text"
               name="title"
+              placeholder="Kashmiri Punjabi"
               value={product.title}
               onChange={handleChange}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Brand
             </label>
             <input
               type="text"
               name="brand"
+              placeholder="Kashmiri"
               value={product.brand}
               onChange={handleChange}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Price
             </label>
             <input
               type="number"
               name="price"
+              placeholder="123"
               value={product.price}
               onChange={handleChange}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 custom-number-input"
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Quantity
             </label>
             <input
               type="number"
               name="quantity"
+              placeholder="10"
               value={product.quantity}
               onChange={handleChange}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 custom-number-input"
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Category
             </label>
-            <input
-              type="text"
-              name="category"
-              value={product.category}
-              onChange={handleChange}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            <Select
+              value={categories.find(
+                (option) => option.label === product.category
+              )}
+              onChange={handleCategoryChange}
+              options={categories}
+              className="mt-1 block w-full"
+              classNamePrefix="react-select"
+              isClearable
+              placeholder="Select or type to search..."
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Description
             </label>
             <textarea
               name="description"
+              placeholder="Write about product details..."
               value={product.description}
               onChange={handleChange}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex gap-3 items-center">
+            <label className="w-24 block text-sm font-medium text-gray-700">
               Image URL
             </label>
             <input
               type="text"
-              name="imageUrl"
-              value={product.imageUrl}
+              name="image_urls"
+              placeholder="https://www.example.com/media/example.jpg"
+              value={product.image_urls[0]}
               onChange={handleChange}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
@@ -151,33 +216,12 @@ const AddProduct = () => {
           </button>
         </form>
       </div>
-      <div className="w-1/3 p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">Upload Image</h2>
-        <div
-          className="border-2 border-dashed border-gray-300 p-4 rounded-lg cursor-pointer"
-          onDrop={handleImageChange}
-          onDragOver={(e) => e.preventDefault()}
-        >
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="hidden"
-          />
-          <p className="text-center text-gray-500">
-            Drag and drop your image here or click to upload
-          </p>
-        </div>
-        {imagePreview && (
-          <div className="mt-4">
-            <img
-              src={imagePreview}
-              alt="Product Preview"
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
-        )}
-      </div>
+
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onConfirm={handleAddProduct}
+      />
     </div>
   );
 };
