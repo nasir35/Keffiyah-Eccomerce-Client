@@ -1,17 +1,17 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useParams } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Categories from "../pages/Categories";
-import Products from "../pages/Products";
+import Products from "../pages/Products/Products";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Orders from "../components/Dashboard/Orders";
-import Dashboard from "../pages/Dashboard";
-import TempLayout from "@/layouts/TempLayout";
 import ProductCharts from "../components/Dashboard/ProductCharts";
-import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
+import PrivateRoute from "./PrivateRoute";
+import NumberParamRoute from "./NumberParamRoute";
+import ContactUs from "../pages/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +29,24 @@ export const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: <Products></Products>,
+        children: [
+          {
+            index: true,
+            element: <Products page={1} />,
+          },
+          {
+            path: ":pageNo",
+            element: (
+              <NumberParamRoute>
+                <Products />
+              </NumberParamRoute>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
       },
       {
         path: "/login",
@@ -43,31 +60,21 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "",
-        element: <Dashboard />,
+        element: <ProductCharts />,
       },
       {
         path: "orders",
         element: <Orders></Orders>,
       },
     ],
-  },
-  {
-    path: "temp",
-    element: <TempLayout />,
-    children: [
-      {
-        path: "",
-        element: <ProductCharts></ProductCharts>,
-      },
-    ],
-  },
-  {
-    path: "/loading",
-    element: <LoadingSpinner />,
   },
 ]);

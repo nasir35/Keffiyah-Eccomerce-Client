@@ -1,44 +1,127 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useAuth from "@/hooks/useAuth";
 import { useState } from "react";
+
+const LinksModal = ({ show, setShow }) => {
+  return (
+    <div className={`fixed inset-0 z-50 ${show ? "block" : "hidden"}`}>
+      <div className="bg-gray-900 bg-opacity-50 absolute inset-0"></div>
+      <div className="bg-white absolute top-0 left-0 transform -translate-x-full h-full z-50 w-64 p-4 overflow-y-auto">
+        <ul className="flex flex-col gap-3">
+          <li>
+            <Link to="/" className="text-gray-800">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/categories" className="text-gray-800">
+              Categories
+            </Link>
+          </li>
+          <li>
+            <Link to="/products" className="text-gray-800">
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact-us" className="text-gray-800">
+              Contact Us
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="text-gray-800">
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link to="/register" className="text-gray-800">
+              Register
+            </Link>
+          </li>
+        </ul>
+        <button
+          className="absolute top-4 right-4 text-gray-600"
+          onClick={() => setShow(false)}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [focused, setFocused] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
+  const location = useLocation();
+
+  const getLinkClass = (path) => {
+    if (path === "/" && path === location.pathname) {
+      return "font-mono text-gray-800 font-medium uppercase border-b-2 border-indigo-500";
+    } else if (path === "/" && path !== location.pathname) {
+      return "font-mono text-gray-800 font-medium uppercase";
+    } else {
+      return location.pathname.includes(path)
+        ? "font-mono text-gray-800 font-medium uppercase border-b-2 border-indigo-500"
+        : "font-mono text-gray-800 font-medium uppercase";
+    }
+  };
+
   return (
-    <div className="navbar bg-base-200 flex justify-between">
+    <div className="navbar bg-base-200 flex justify-between flex-wrap">
       {/* logo  */}
-      <div className="flex">
-        <a className="btn btn-ghost text-xl">Keffiyeh</a>
+      <div className="flex gap-2">
+        <button
+          className="btn btn-ghost text-xl lg:hidden" // Hide button on large screens
+          onClick={() => setShowLinks(!showLinks)} // Toggle visibility of links modal
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block w-5 h-5 stroke-current"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        <Link to="/" className="btn btn-ghost text-xl">
+          Keffiyeh
+        </Link>
       </div>
       {/* links */}
-      <div>
-        <ul className="flex gap-5 items-center">
-          <li className="font-mono text-gray-800 font-medium uppercase">
-            <Link to={"/"}>Home</Link>
+      <div className="lg:flex hidden">
+        <ul className="flex gap-5 items-center flex-wrap">
+          <li className={getLinkClass("/")}>
+            <Link to="/">Home</Link>
           </li>
-          <li className="font-mono text-gray-800 font-medium uppercase">
-            <Link to={"/categories"}>Categories</Link>
+          <li className={getLinkClass("/categories")}>
+            <Link to="/categories">Categories</Link>
           </li>
-          <li className="font-mono text-gray-800 font-medium uppercase">
-            <Link to={"/products"}>Products</Link>
+          <li className={getLinkClass("/products")}>
+            <Link to="/products">Products</Link>
           </li>
           {user && (
-            <li className="font-mono text-gray-800 font-medium uppercase">
-              <Link to={"/dashboard"}>Dashboard</Link>
+            <li className={getLinkClass("/dashboard")}>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
           )}
-          <li className="font-mono text-gray-800 font-medium uppercase">
-            <Link to={"/contact-us"}>Contact-Us</Link>
+          <li className={getLinkClass("/contact-us")}>
+            <Link to="/contact-us">Contact-Us</Link>
           </li>
           {!user && (
-            <li className="font-mono text-gray-800 font-medium uppercase">
-              <Link to={"/login"}>Login</Link>
+            <li className={getLinkClass("/login")}>
+              <Link to="/login">Login</Link>
             </li>
           )}
           {!user && (
-            <li className="font-mono text-gray-800 font-medium uppercase">
-              <Link to={"/register"}>Register</Link>
+            <li className={getLinkClass("/register")}>
+              <Link to="/register">Register</Link>
             </li>
           )}
         </ul>
@@ -52,14 +135,12 @@ const Navbar = () => {
         >
           <input
             type="text"
-            name=""
             className="pr-2 outline-none focus:outline-none h-8 bg-base-200"
-            id="search-propmt"
             placeholder="Search.."
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
           />
-          <button className="search-btn " id="search-btn">
+          <button className="search-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -120,7 +201,7 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt="User avatar"
                   src={
                     user?.photoURL ||
                     "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
@@ -147,6 +228,7 @@ const Navbar = () => {
             </ul>
           </div>
         )}
+        <LinksModal show={showLinks} setShow={setShowLinks} />
       </div>
     </div>
   );

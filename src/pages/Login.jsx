@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
@@ -8,19 +9,19 @@ const Login = () => {
   const location = useLocation();
 
   const from = location?.state?.from?.pathname || "/";
-  const handleLogin = e => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const data = {
-      email : e.target.querySelector("input[type=email]").value,
-      pass : e.target.querySelector("input[type = password]").value,
-    }
+      email: e.target.querySelector("input[type=email]").value,
+      pass: e.target.querySelector("input[type = password]").value,
+    };
     console.log(data);
-  }
+  };
 
   const { googleLogin } = useAuth();
   const handleGoogleLogin = () => {
     googleLogin();
-  }
+  };
 
   useEffect(() => {
     if (user) {
@@ -33,8 +34,9 @@ const Login = () => {
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In
-            deleniti eaque aut repudiandae et a id nisi.
+            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
+            a id nisi.
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-body">
@@ -43,13 +45,23 @@ const Login = () => {
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
-              <input type="email" placeholder="email" className="input input-bordered" required />
+              <input
+                type="email"
+                placeholder="email"
+                className="input input-bordered"
+                required
+              />
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input type="password" placeholder="password" className="input input-bordered" required />
+              <input
+                type="password"
+                placeholder="password"
+                className="input input-bordered"
+                required
+              />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
@@ -59,14 +71,23 @@ const Login = () => {
             <div className="form-control mt-3">
               <button className="btn btn-primary">Login</button>
             </div>
-            
           </form>
           <div className="form-control">
-              <button className="btn bg-orange-600 text-white" onClick={handleGoogleLogin}>Sign in with Google</button>
-            </div>
-            <div>
-              <p className="text-sm">Don't have an account? <Link to={"/register"} className="text-blue-600">Register here</Link></p>
-            </div>
+            <button
+              className="btn bg-orange-600 text-white"
+              onClick={handleGoogleLogin}
+            >
+              Sign in with Google
+            </button>
+          </div>
+          <div>
+            <p className="text-sm">
+              Don't have an account?{" "}
+              <Link to={"/register"} className="text-blue-600">
+                Register here
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
