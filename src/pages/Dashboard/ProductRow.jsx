@@ -25,7 +25,9 @@ const ProductRow = ({ index, product }) => {
         <button className="btn btn-outline btn-neutral btn-xs">
           <Link to={`/products/product-details/${id}`}>Details</Link>
         </button>
-        <button className="btn btn-outline btn-xs btn-primary">Edit</button>
+        <button className="btn btn-outline btn-xs btn-primary">
+          <Link to={`/dashboard/product-edit/${id}`}>Edit</Link>
+        </button>
         <button className="btn btn-outline btn-xs btn-error">Delete</button>
       </td>
     </tr>

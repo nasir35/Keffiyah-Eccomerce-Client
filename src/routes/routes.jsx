@@ -15,6 +15,8 @@ import CategoryBasedProducts from "../pages/Products/CategoryBasedProducts";
 import AddProduct from "../pages/Dashboard/AddProduct";
 import AllProducts from "../pages/Dashboard/AllProducts";
 import ProductDetails from "../pages/Products/ProductDetails";
+import ProfilePage from "../pages/ProfilePage";
+import EditProductPage from "../pages/Dashboard/EditProductPage";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <ProfilePage />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -92,6 +102,10 @@ export const router = createBrowserRouter([
         loader: async () => {
           return await fetch("http://localhost:3000/products");
         },
+      },
+      {
+        path: "product-edit/:id",
+        element: <EditProductPage />,
       },
     ],
   },

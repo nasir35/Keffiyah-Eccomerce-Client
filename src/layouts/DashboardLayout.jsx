@@ -13,6 +13,13 @@ import {
 const DashboardLayout = () => {
   const { user, logOut } = useAuth();
 
+  const closeDropdown = () => {
+    const dropdownContainer = document.getElementById("user-dropdown");
+    if (dropdownContainer.classList.contains("dropdown-open")) {
+      dropdownContainer.classList.remove("dropdown-open");
+    }
+  };
+
   return (
     <div className="flex h-screen overflow-y-hidden">
       <aside className="w-64 bg-gray-800 text-white flex flex-col p-4">
@@ -96,16 +103,16 @@ const DashboardLayout = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
-                <li>
-                  <a className="justify-between">
+                <li onClick={closeDropdown}>
+                  <Link to="/profile" className="justify-between">
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
+                {/* <li onClick={closeDropdown}>
+                <a>Settings</a>
+              </li> */}
+                <li onClick={closeDropdown}>
                   <button onClick={logOut}>Logout</button>
                 </li>
               </ul>

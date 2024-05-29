@@ -3,7 +3,6 @@ import ProductRow from "./ProductRow";
 
 const AllProducts = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <div>
       <div className="overflow-x-auto">

@@ -70,6 +70,12 @@ const Navbar = () => {
       document.body.style.overflow = "auto";
     }
   }, [showLinks]);
+  const closeDropdown = () => {
+    const dropdownContainer = document.getElementById("user-dropdown");
+    if (dropdownContainer.classList.contains("dropdown-open")) {
+      dropdownContainer.classList.remove("dropdown-open");
+    }
+  };
 
   const getLinkClass = (path) => {
     if (path === "/" && path === location.pathname) {
@@ -208,7 +214,7 @@ const Navbar = () => {
           </div>
         </div>
         {user && (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end" id="user-dropdown">
             <div
               tabIndex={0}
               role="button"
@@ -219,7 +225,7 @@ const Navbar = () => {
                   alt="User avatar"
                   src={
                     user?.photoURL ||
-                    "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    "https://aui.atlassian.com/aui/8.8/docs/images/avatar-person.svg"
                   }
                 />
               </div>
@@ -228,16 +234,16 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a className="justify-between">
+              <li onClick={closeDropdown}>
+                <Link to="/profile" className="justify-between">
                   Profile
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
-              <li>
+              {/* <li onClick={closeDropdown}>
                 <a>Settings</a>
-              </li>
-              <li>
+              </li> */}
+              <li onClick={closeDropdown}>
                 <button onClick={logOut}>Logout</button>
               </li>
             </ul>

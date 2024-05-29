@@ -46,7 +46,6 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       const res = await signInWithPopup(auth, googleProvider);
-      console.log(res);
       setLoading(false);
       return res;
     } catch (error) {
@@ -74,7 +73,6 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
         setLoading(false);
-        console.log(currentUser);
       } else {
         setLoading(false);
       }

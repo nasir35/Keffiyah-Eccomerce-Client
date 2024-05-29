@@ -1,25 +1,34 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import Select from "react-select";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Select from "react-select";
 import ConfirmModal from "./ConfirmModal";
 
-const AddProduct = () => {
-  const initialProductState = {
-    id: "",
+const EditProductPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [product, setProduct] = useState({
     title: "",
     brand: "",
+    category: "",
     price: "",
     quantity: "",
-    category: "",
     description: "",
     image_urls: [""],
-  };
+  });
 
-  const [product, setProduct] = useState(initialProductState);
   const [categories, setCategories] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    async function load() {
+      const data = await axios.get(`http://localhost:3000/products/${id}`);
+      setProduct(data?.data);
+    }
+    load();
+  }, [id]);
 
   useEffect(() => {
     async function load() {
@@ -36,6 +45,13 @@ const AddProduct = () => {
     load();
   }, []);
 
+  const handleCategoryChange = (selectedOption) => {
+    setProduct({
+      ...product,
+      category: selectedOption ? selectedOption.label : "",
+    });
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "image_urls") {
@@ -45,27 +61,19 @@ const AddProduct = () => {
     }
   };
 
-  const handleCategoryChange = (selectedOption) => {
-    setProduct({
-      ...product,
-      category: selectedOption ? selectedOption.label : "",
+  const handleSave = async () => {
+    await fetch(`http://localhost:3000/products/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
     });
+    toast.success("Product Details Updated!");
+    setTimeout(() => {
+      navigate("/dashboard/all-products");
+    }, 1000);
   };
-
-  const handleAddProduct = async () => {
-    try {
-      const res = await axios.post("http://localhost:3000/products", product);
-      if (res.status === 201) {
-        toast.success("Product added successfully!");
-        setProduct(initialProductState); // Reset form after success
-      }
-    } catch (error) {
-      toast.error("Failed to add product.");
-      console.error(error);
-    }
-    closeModal();
-  };
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -73,17 +81,16 @@ const AddProduct = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     openModal();
   };
 
   return (
-    <div className="min-h-fit bg-gray-100 flex">
+    <div className="max-w-4xl mx-auto p-4">
       <ToastContainer
         position="top-right"
-        autoClose={4000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={true}
         closeOnClick
@@ -92,24 +99,10 @@ const AddProduct = () => {
         draggable
         pauseOnHover
       />
-      <div className="lg:w-2/3 w-full mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-center">Add Product</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex gap-3 items-center">
-            <label className="w-24 block text-sm font-medium text-gray-700">
-              ID
-            </label>
-            <input
-              type="text"
-              name="id"
-              value={product.id}
-              onChange={handleChange}
-              placeholder="121"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-          <div className="flex gap-3 items-center">
+      <div className="bg-white shadow-md rounded-lg p-6">
+        <h2 className="text-2xl font-bold mb-4 ">Edit Product</h2>
+        <div className="space-y-4">
+          <div className="flex gap-3 items-center ">
             <label className="w-24 block text-sm font-medium text-gray-700">
               Title
             </label>
@@ -158,7 +151,6 @@ const AddProduct = () => {
             <input
               type="number"
               name="quantity"
-              placeholder="10"
               value={product.quantity}
               onChange={handleChange}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 custom-number-input"
@@ -209,22 +201,27 @@ const AddProduct = () => {
             />
           </div>
           <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+            onClick={handleSubmit}
+            className="bg-blue-500 text-white px-4 py-2 rounded mr-2"
           >
-            Add Product
+            Save
           </button>
-        </form>
+          <button
+            onClick={() => navigate("/dashboard/all-products")}
+            className="bg-gray-500 text-white px-4 py-2 rounded"
+          >
+            Cancel
+          </button>
+        </div>
+        <ConfirmModal
+          action={"Edit"}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onConfirm={handleSave}
+        />
       </div>
-
-      <ConfirmModal
-        action={"Add"}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onConfirm={handleAddProduct}
-      />
     </div>
   );
 };
 
-export default AddProduct;
+export default EditProductPage;

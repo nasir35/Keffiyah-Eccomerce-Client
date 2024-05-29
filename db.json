@@ -97,8 +97,8 @@
       "id": "1",
       "title": "Classic White T-Shirt",
       "brand": "BasicThreads",
-      "price": 19.99,
-      "quantity": 100,
+      "price": "23.5",
+      "quantity": "17",
       "category": "T-shirts",
       "description": "A classic white t-shirt made from high-quality cotton. Perfect for casual wear and easy to pair with any outfit.",
       "image_urls": [
@@ -124,7 +124,7 @@
       "title": "Striped T-Shirt",
       "brand": "StripeWear",
       "price": 22.99,
-      "quantity": 75,
+      "quantity": "70",
       "category": "T-shirts",
       "description": "A modern striped t-shirt that combines style and comfort. Perfect for casual outings.",
       "image_urls": [
@@ -137,7 +137,7 @@
       "title": "V-Neck T-Shirt",
       "brand": "FashionEssentials",
       "price": 20.99,
-      "quantity": 60,
+      "quantity": "45",
       "category": "T-shirts",
       "description": "A trendy v-neck t-shirt available in multiple colors. Made from premium fabric for a comfortable fit.",
       "image_urls": [
