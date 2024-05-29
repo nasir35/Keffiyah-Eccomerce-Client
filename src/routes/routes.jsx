@@ -1,4 +1,4 @@
-import { createBrowserRouter, useParams } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
@@ -7,7 +7,6 @@ import Register from "../pages/Register";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products/Products";
 import DashboardLayout from "../layouts/DashboardLayout";
-import Orders from "../components/Dashboard/Orders";
 import ProductCharts from "../components/Dashboard/ProductCharts";
 import PrivateRoute from "./PrivateRoute";
 import NumberParamRoute from "./NumberParamRoute";
@@ -15,6 +14,7 @@ import ContactUs from "../pages/ContactUs";
 import CategoryBasedProducts from "../pages/Products/CategoryBasedProducts";
 import AddProduct from "../pages/Dashboard/AddProduct";
 import AllProducts from "../pages/Dashboard/AllProducts";
+import ProductDetails from "../pages/Products/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +48,10 @@ export const router = createBrowserRouter([
           {
             path: "category/:categoryId",
             element: <CategoryBasedProducts />,
+          },
+          {
+            path: "product-details/:product_id",
+            element: <ProductDetails />,
           },
         ],
       },

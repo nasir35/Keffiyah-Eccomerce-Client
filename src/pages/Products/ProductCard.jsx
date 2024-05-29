@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductCard = ({ data }) => {
   const { id, title, price, quantity, brand, image_urls, category } = data;
   return (
@@ -16,7 +18,9 @@ const ProductCard = ({ data }) => {
           <p>$ {price}</p>
         </div>
         <div className="card-actions flex gap-3">
-          <button className="btn btn-neutral">See Details</button>
+          <button className="btn btn-neutral">
+            <Link to={`/products/product-details/${id}`}>See Details</Link>
+          </button>
           <button className="btn btn-primary">Buy Now</button>
         </div>
       </div>

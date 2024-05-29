@@ -4,6 +4,8 @@ import {
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { app } from "@/firebase/firebase.config.js";
 import { createContext, useEffect, useState } from "react";
@@ -16,6 +18,28 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+
+  const createUser = (email, password) => {
+    setLoading(true);
+    try {
+      return createUserWithEmailAndPassword(auth, email, password);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const signIn = (email, password) => {
+    setLoading(true);
+    try {
+      return signInWithEmailAndPassword(auth, email, password);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const googleLogin = async () => {
     // Make googleLogin an asynchronous function
@@ -65,6 +89,8 @@ const AuthProvider = ({ children }) => {
     loading,
     googleLogin,
     logOut,
+    signIn,
+    createUser,
   };
   return (
     <AuthContext.Provider value={AuthInfo}>

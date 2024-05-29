@@ -2,23 +2,30 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  const { user } = useAuth();
+  const { user, signIn, googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location?.state?.from?.pathname || "/";
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.querySelector("input[type=email]").value,
-      pass: e.target.querySelector("input[type = password]").value,
-    };
-    console.log(data);
+    try {
+      const data = {
+        email: e.target.querySelector("input[type=email]").value,
+        pass: e.target.querySelector("input[type = password]").value,
+      };
+      console.log(data);
+      const res = await signIn(data.email, data.pass);
+      console.log(res);
+    } catch (e) {
+      toast.error(`Login Failed due to ${e.code}`);
+    }
   };
 
-  const { googleLogin } = useAuth();
   const handleGoogleLogin = () => {
     googleLogin();
   };
@@ -30,6 +37,17 @@ const Login = () => {
   }, [user, from, navigate]);
   return (
     <div className="hero min-h-screen bg-base-200">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>

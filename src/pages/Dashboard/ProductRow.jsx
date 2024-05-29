@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductRow = ({ index, product }) => {
   const { id, title, brand, price, image_urls, quantity, category } = product;
   return (
@@ -20,7 +22,9 @@ const ProductRow = ({ index, product }) => {
       <td>$ {price}</td>
       <td>{quantity}</td>
       <td className="flex gap-2 h-full items-center">
-        <button className="btn btn-outline btn-neutral btn-xs">Details</button>
+        <button className="btn btn-outline btn-neutral btn-xs">
+          <Link to={`/products/product-details/${id}`}>Details</Link>
+        </button>
         <button className="btn btn-outline btn-xs btn-primary">Edit</button>
         <button className="btn btn-outline btn-xs btn-error">Delete</button>
       </td>
