@@ -90,6 +90,12 @@
       "title": "Hats",
       "itemsCount": 20,
       "image": "https://m.media-amazon.com/images/I/7193s9C7ruL._AC_UL480_FMwebp_QL65_.jpg"
+    },
+    {
+      "id": 16,
+      "title": "tst",
+      "itemsCount": "5",
+      "image": "https://m.media-amazon.com/images/I/515c+nXHjQL._AC_SY741_.jpg"
     }
   ],
   "products": [

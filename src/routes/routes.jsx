@@ -17,6 +17,10 @@ import AllProducts from "../pages/Dashboard/AllProducts";
 import ProductDetails from "../pages/Products/ProductDetails";
 import ProfilePage from "../pages/ProfilePage";
 import EditProductPage from "../pages/Dashboard/EditProductPage";
+import AddCategory from "../pages/Dashboard/AddCategory";
+import AllCategory from "../pages/Dashboard/AllCategory";
+import SummaryReport from "../pages/Dashboard/SummaryReport";
+import SearchBar from "../components/SearchBar";
 
 export const router = createBrowserRouter([
   {
@@ -90,11 +94,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <ProductCharts />,
-      },
-      {
-        path: "add-product",
-        element: <AddProduct />,
+        element: <SummaryReport />,
       },
       {
         path: "all-products",
@@ -104,9 +104,32 @@ export const router = createBrowserRouter([
         },
       },
       {
+        path: "all-categories",
+        element: <AllCategory />,
+        loader: async () => {
+          return await fetch("http://localhost:3000/categories");
+        },
+      },
+      {
+        path: "add-product",
+        element: <AddProduct />,
+      },
+      {
+        path: "add-category",
+        element: <AddCategory />,
+      },
+      {
+        path: "summary-report",
+        element: <SummaryReport />,
+      },
+      {
         path: "product-edit/:id",
         element: <EditProductPage />,
       },
     ],
+  },
+  {
+    path: "/t",
+    element: <SearchBar />,
   },
 ]);

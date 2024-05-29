@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +12,13 @@ import {
 
 const DashboardLayout = () => {
   const { user, logOut } = useAuth();
+  const location = useLocation();
+
+  const isActiveTab = (path) => {
+    if (path === "/dashboard/product-edit/") {
+      return location.pathname.includes(path);
+    } else return location.pathname === path;
+  };
 
   const closeDropdown = () => {
     const dropdownContainer = document.getElementById("user-dropdown");
@@ -27,43 +34,95 @@ const DashboardLayout = () => {
         <nav className="flex-1">
           <ul>
             <li className="mb-4">
-              <Link to="" className="flex items-center">
+              <Link
+                to=""
+                className={`flex items-center ${
+                  isActiveTab("/dashboard") ? "text-yellow-300" : ""
+                }  ${
+                  isActiveTab("/dashboard/product-edit/")
+                    ? "text-yellow-300"
+                    : ""
+                }`}
+              >
                 <FontAwesomeIcon icon={faHome} className="mr-2" />
                 Dashboard
               </Link>
             </li>
             <li className="mb-4">
-              <Link to="all-products" className="flex items-center">
+              <Link
+                to="all-products"
+                className={`flex items-center ${
+                  isActiveTab("/dashboard/all-products")
+                    ? "text-yellow-300"
+                    : ""
+                }`}
+              >
                 <FontAwesomeIcon icon={faBox} className="mr-2" />
                 All Products
               </Link>
             </li>
             <li className="mb-4">
-              <Link to="add-product" className="flex items-center">
+              <Link
+                to="all-categories"
+                className={`flex items-center ${
+                  isActiveTab("/dashboard/all-categories")
+                    ? "text-yellow-300"
+                    : ""
+                }`}
+              >
+                <FontAwesomeIcon icon={faBox} className="mr-2" />
+                All Categories
+              </Link>
+            </li>
+            <li className="mb-4">
+              <Link
+                to="add-product"
+                className={`flex items-center ${
+                  isActiveTab("/dashboard/add-product") ? "text-yellow-300" : ""
+                }`}
+              >
                 <FontAwesomeIcon icon={faTags} className="mr-2" />
                 Add Product
               </Link>
             </li>
             <li className="mb-4">
-              <Link to="add-categories" className="flex items-center">
+              <Link
+                to="add-category"
+                className={`flex items-center ${
+                  isActiveTab("/dashboard/add-category")
+                    ? "text-yellow-300"
+                    : ""
+                }`}
+              >
                 <FontAwesomeIcon icon={faTags} className="mr-2" />
                 Add Categories
               </Link>
             </li>
             {/* <li className="mb-4">
-              <Link to="users" className="flex items-center">
+              <Link to="users" className={`flex items-center ${
+                  isActiveTab("/users") ? "bg-gray-700" : ""
+                }`}>
                 <FontAwesomeIcon icon={faUser} className="mr-2" />
                 Users
               </Link>
             </li>
             <li className="mb-4">
-              <Link to="admins" className="flex items-center">
+              <Link to="admins" className={`flex items-center ${
+                  isActiveTab("/admins") ? "bg-gray-700" : ""
+                }`}>
                 <FontAwesomeIcon icon={faUsersCog} className="mr-2" />
                 Admins
               </Link>
             </li> */}
             <li className="mb-4">
-              <Link to="summary-report" className="flex items-center">
+              <Link
+                to="summary-report"
+                className={`flex items-center ${
+                  isActiveTab("/dashboard/summary-report")
+                    ? "text-yellow-300"
+                    : ""
+                }`}
+              >
                 <FontAwesomeIcon icon={faChartPie} className="mr-2" />
                 Summary Report
               </Link>
@@ -71,9 +130,9 @@ const DashboardLayout = () => {
           </ul>
         </nav>
         <div>
-          <a href="/" className="text-orange-500">
+          <Link to="/" className="text-orange-500">
             Back to Home
-          </a>
+          </Link>
         </div>
       </aside>
 

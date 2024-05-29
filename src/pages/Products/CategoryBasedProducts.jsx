@@ -52,12 +52,20 @@ const CategoryBasedProducts = () => {
         title={`Products for ${categoryTitle} category!`}
         subTitle="We have a vast collection of products in different categories! Check out from the below and get your desired one."
       />
-      <div className="grid grid-cols-3 gap-3 mb-8">
-        {filteredProducts.length > 0 &&
-          filteredProducts.map((product) => (
-            <ProductCard key={product.id} data={product} />
-          ))}
-      </div>
+      {filteredProducts.length > 0 && (
+        <div className="grid grid-cols-3 gap-3 mb-8">
+          {filteredProducts.length > 0 &&
+            filteredProducts.map((product) => (
+              <ProductCard key={product.id} data={product} />
+            ))}
+        </div>
+      )}
+      {filteredProducts.length === 0 && (
+        <div className="max-w-[90%] min-h-[40vh] mx-auto text-center flex justify-center items-center text-orange-600">
+          There are no products added yet for this category. Please visit later
+          again. Thanks for your patience.{" "}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import useAuth from "@/hooks/useAuth";
 import { useEffect, useState } from "react";
+import SearchBar from "../SearchBar";
 
 const LinksModal = ({ show, setShow }) => {
   const links = document.querySelectorAll("li");
@@ -154,13 +155,14 @@ const Navbar = () => {
             focused ? "border-indigo-500" : "border-gray-300"
           } px-3`}
         >
-          <input
+          <SearchBar setFocused={setFocused} />
+          {/* <input
             type="text"
             className="pr-2 outline-none focus:outline-none h-8 bg-base-200"
             placeholder="Search.."
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-          />
+          /> */}
           <button className="search-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
