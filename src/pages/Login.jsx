@@ -18,9 +18,7 @@ const Login = () => {
         email: e.target.querySelector("input[type=email]").value,
         pass: e.target.querySelector("input[type = password]").value,
       };
-      console.log(data);
-      const res = await signIn(data.email, data.pass);
-      console.log(res);
+      await signIn(data.email, data.pass);
     } catch (e) {
       toast.error(`Login Failed due to ${e.code}`);
     }
