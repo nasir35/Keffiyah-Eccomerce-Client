@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductRow = ({ index, product }) => {
+const ProductRow = ({ index, product, handleDelete }) => {
   const { id, title, brand, price, image_urls, quantity, category } = product;
   return (
     <tr className={index % 2 == 0 ? "bg-slate-50" : "bg-gray-200"}>
@@ -28,7 +28,12 @@ const ProductRow = ({ index, product }) => {
         <button className="btn btn-outline btn-xs btn-primary">
           <Link to={`/dashboard/product-edit/${id}`}>Edit</Link>
         </button>
-        <button className="btn btn-outline btn-xs btn-error">Delete</button>
+        <button
+          className="btn btn-outline btn-xs btn-error"
+          onClick={() => handleDelete(id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );

@@ -924,45 +924,6 @@
         "https://image.freepik.com/free-photo/wool-beanie-hat_23-2148621690.jpg",
         "https://image.freepik.com/free-photo/cozy-beanie-hat_23-2148621692.jpg"
       ]
-    },
-    {
-      "id": "65",
-      "title": "Fedora Hat",
-      "brand": "ElegantHeadwear",
-      "price": 29.99,
-      "quantity": 45,
-      "category": "Hats",
-      "description": "A stylish fedora hat that adds a touch of elegance to any outfit. Made from high-quality felt.",
-      "image_urls": [
-        "https://image.freepik.com/free-photo/fedora-hat-mockup_23-2148621698.jpg",
-        "https://image.freepik.com/free-photo/classy-fedora-hat_23-2148621700.jpg"
-      ]
-    },
-    {
-      "id": "66",
-      "title": "Sun Hat",
-      "brand": "BeachwearCo",
-      "price": 24.99,
-      "quantity": 60,
-      "category": "Hats",
-      "description": "A wide-brimmed sun hat that provides excellent sun protection. Perfect for beach outings.",
-      "image_urls": [
-        "https://image.freepik.com/free-photo/sun-hat-mockup_23-2148621706.jpg",
-        "https://image.freepik.com/free-photo/beach-sun-hat_23-2148621708.jpg"
-      ]
-    },
-    {
-      "id": "67",
-      "title": "Trucker Hat",
-      "brand": "UrbanStyle",
-      "price": 18.99,
-      "quantity": 90,
-      "category": "Hats",
-      "description": "A trendy trucker hat with mesh back for breathability. Available in multiple designs and colors.",
-      "image_urls": [
-        "https://image.freepik.com/free-photo/trucker-hat-mockup_23-2148621714.jpg",
-        "https://image.freepik.com/free-photo/cool-trucker-hat_23-2148621716.jpg"
-      ]
     }
   ]
 }
