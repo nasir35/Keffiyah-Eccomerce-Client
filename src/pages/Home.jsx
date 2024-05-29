@@ -1,10 +1,12 @@
 import Banner from "@components/Home/Banner";
-import HeroSection from "../components/Home/HeroSection";
+import TrendingCategories from "../components/Home/TrendingCategories";
+import LatestProducts from "../components/Home/LatestProducts";
 const Home = () => {
   return (
     <div className="">
       <Banner />
-      <HeroSection></HeroSection>
+      <TrendingCategories />
+      <LatestProducts />
     </div>
   );
 };
