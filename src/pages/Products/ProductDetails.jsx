@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useCart from "@/hooks/useCart";
 
 const ProductDetails = () => {
   const { product_id } = useParams();
   const [product, setProduct] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     async function load() {
@@ -57,7 +59,10 @@ const ProductDetails = () => {
             <p className="mt-2 text-gray-600">Price: ${price}</p>
             <p className="mt-2 text-gray-600">Available Quantity: {quantity}</p>
             <div className="mt-4">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => addToCart(product)}
+              >
                 Add to Cart
               </button>
             </div>

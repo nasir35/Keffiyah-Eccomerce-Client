@@ -7,7 +7,6 @@ import Register from "../pages/Register";
 import Categories from "../pages/Categories";
 import Products from "../pages/Products/Products";
 import DashboardLayout from "../layouts/DashboardLayout";
-import ProductCharts from "../components/Dashboard/ProductCharts";
 import PrivateRoute from "./PrivateRoute";
 import NumberParamRoute from "./NumberParamRoute";
 import ContactUs from "../pages/ContactUs";

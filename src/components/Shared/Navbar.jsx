@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import useAuth from "@/hooks/useAuth";
 import { useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
+import useCart from "@/hooks/useCart";
 
 const LinksModal = ({ show, setShow }) => {
   const links = document.querySelectorAll("li");
@@ -64,6 +65,8 @@ const Navbar = () => {
   const [focused, setFocused] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
   const location = useLocation();
+  const { cartCount, totalPrice } = useCart();
+
   useEffect(() => {
     if (showLinks) {
       document.body.style.overflow = "hidden";
@@ -95,8 +98,8 @@ const Navbar = () => {
       {/* logo  */}
       <div className="flex">
         <button
-          className="btn px-2 btn-ghost text-xl lg:hidden" // Hide button on large screens
-          onClick={() => setShowLinks(!showLinks)} // Toggle visibility of links modal
+          className="btn px-2 btn-ghost text-xl lg:hidden"
+          onClick={() => setShowLinks(!showLinks)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -156,13 +159,6 @@ const Navbar = () => {
           } px-3`}
         >
           <SearchBar setFocused={setFocused} />
-          {/* <input
-            type="text"
-            className="pr-2 outline-none focus:outline-none h-8 bg-base-200"
-            placeholder="Search.."
-            onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
-          /> */}
           <button className="search-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +194,7 @@ const Navbar = () => {
                 />
               </svg>
               <span className="badge border-orange-600 badge-sm indicator-item">
-                8
+                {cartCount}
               </span>
             </div>
           </div>
@@ -207,8 +203,8 @@ const Navbar = () => {
             className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
           >
             <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
+              <span className="font-bold text-lg">{cartCount} Items</span>
+              <span className="text-info">Subtotal: ${totalPrice}</span>
               <div className="card-actions">
                 <button className="btn btn-primary btn-block">View cart</button>
               </div>

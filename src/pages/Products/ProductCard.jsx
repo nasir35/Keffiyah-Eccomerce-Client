@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import useCart from "@/hooks/useCart";
 
 const ProductCard = ({ data }) => {
   const { id, title, price, quantity, brand, image_urls, category } = data;
+  const { addToCart } = useCart();
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -21,7 +23,9 @@ const ProductCard = ({ data }) => {
           <button className="btn btn-neutral">
             <Link to={`/products/product-details/${id}`}>See Details</Link>
           </button>
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-primary" onClick={() => addToCart(data)}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
